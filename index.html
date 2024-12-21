@@ -1,1 +1,330 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --background-color: #f8f9fa;
+            --card-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.8;
+            color: #333;
+            background-color: var(--background-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: var(--background-color);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile {
+            text-align: center;
+            margin: -100px auto 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--card-color);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            border: 4px solid var(--card-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-color);
+        }
+
+        .section {
+            background-color: var(--card-color);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background: var(--card-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .paper-list, .notes-list {
+            list-style: none;
+        }
+
+        .paper-item, .note-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .paper-title, .note-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .paper-authors, .note-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f2f5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.3rem;
+            color: var(--primary-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .lecture-notes {
+            margin-top: 2rem;
+        }
+
+        .semester-section {
+            margin-bottom: 2rem;
+        }
+
+        .note-card {
+            background: var(--card-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jason</h1>
+        <p>Student at HKU</p>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-image">:)</div>
+            <p>Brief introduction about yourself and your research interests.</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2>Course Materials</h2>
+            <div class="grid-container">
+                <div class="course-card">
+                    <div class="course-title">Course Name 1</div>
+                    <p>Brief description of the course content and objectives.</p>
+                    <div class="lecture-notes">
+                        <h3>Lecture Notes</h3>
+                        <div class="note-card">
+                            <h4>Week 1: Introduction</h4>
+                            <p>Topics covered in this lecture...</p>
+                            <a href="#" class="download-btn">Download PDF</a>
+                        </div>
+                        <div class="note-card">
+                            <h4>Week 2: Advanced Topics</h4>
+                            <p>Topics covered in this lecture...</p>
+                            <a href="#" class="download-btn">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-title">Course Name 2</div>
+                    <p>Brief description of the course content and objectives.</p>
+                    <div class="lecture-notes">
+                        <h3>Lecture Notes</h3>
+                        <div class="note-card">
+                            <h4>Week 1: Fundamentals</h4>
+                            <p>Topics covered in this lecture...</p>
+                            <a href="#" class="download-btn">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Academic Papers</h2>
+            <ul class="paper-list">
+                <li class="paper-item">
+                    <div class="paper-title">Paper Title 1</div>
+                    <div class="paper-authors">Authors: Your Name, Co-author 1, Co-author 2</div>
+                    <div class="paper-abstract">
+                        Brief abstract or summary of the paper goes here...
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Topic 1</span>
+                        <span class="tag">Topic 2</span>
+                    </div>
+                    <a href="#" class="download-btn">Read Paper</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Research Notes</h2>
+            <ul class="notes-list">
+                <li class="note-item">
+                    <div class="note-title">Research Note 1</div>
+                    <div class="note-date">Published: January 1, 2024</div>
+                    <div class="note-preview">
+                        Preview of the research note content goes here...
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Category 1</span>
+                        <span class="tag">Category 2</span>
+                    </div>
+                    <a href="#" class="download-btn">Read More</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
